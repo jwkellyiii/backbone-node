@@ -1,0 +1,4 @@
+/* add space to top so headers aren't covered by navbar */
+.page {
+    margin-top: 40px;
+}

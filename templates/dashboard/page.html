@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="span12">
+        <!-- dashboard -->
+
+        <div id="issues-list">
+            <% _.each(issues, function(issue) { %>
+
+                <!-- TODO:: make its own template -->
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="<%= issue.get('user').url %>">
+                            <img class="media-object" width="80" height="80" src="<%= issue.get('user').avatar_url %>" alt="<%= issue.get('user').login %>" title="<%= issue.get('user').login %>" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <span class="muted">#<%= issue.get('number') %></span>
+                            <a href="/#issue/<%= issue.get('number') %>"><%= issue.get('title') %></a>
+                        </h5>
+                        <div>
+                            <small>
+                                <!-- TODO:: ago timestamping using the moment jquery js -->
+                                <span>Created <span id="created_at"><%= issue.get('created_at') %></span> by <span id="creator"><a href="<%= issue.get('user').url %>"><%= issue.get('user').login %></a></span>.</span>
+                                <%= issue.get('comments') %>
+                            </small>
+                        </div>
+                        <!-- TODO:: trim the body down to a summary length -->
+                        <p><%= issue.get('body') %></p>
+                        <span id="labels">
+                            <!-- TODO:: make its own template -->
+                            <% _.each(issue.get('labels'), function(label) { %>
+                                <span class="label label-info"><%= label.name %></span>
+                            <% }); %>
+                        </span>
+                    </div>
+                </div>
+
+            <% }); %>
+        </div>
+    </div>
+</div>

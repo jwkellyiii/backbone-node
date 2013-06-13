@@ -1,0 +1,42 @@
+<section id="issues-viewer">
+    <header>
+        <h1>Issue <span class="muted">#<%= issue.get('number') %></span></h1>
+    </header>
+
+    <div class="row-fluid">
+        <section id="issue" class="clearfix">
+            <div class="span12">
+                <div class="media">
+                    <div class="pull-left text-center">
+                        <a href="<%= issue.get('user').url %>" class="creator">
+                            <img class="media-object" width="80" height="80" src="<%= issue.get('user').avatar_url %>" alt="<%= issue.get('user').login %>" title="<%= issue.get('user').login %>" />
+                        </a>
+                        <%= issue.get('state') %>
+                    </div>
+                    <div class="media-body">
+                        <div class="issue-body">
+                            <small>
+                                <span>Created by <span id="creator"><a href="<%= issue.get('user').url %>"><%= issue.get('user').login %></a></span> <span id="created_at"><%= issue.get('created_at') %></span>.</span>
+                                <%= issue.get('comments') %>
+                            </small>
+                            <h5 class="media-heading">
+                                <span class="muted">#<%= issue.get('number') %></span>
+                                <%= issue.get('title') %>
+                            </h5>
+                            <div><%= issue.get('body') %></div>
+                            <span id="labels">
+                                <!-- TODO:: make its own template -->
+                                <% _.each(issue.get('labels'), function(label) { %>
+                                    <span class="label label-info"><%= label.name %></span>
+                                <% }); %>
+                            </span>
+                        </div>
+
+                        <!-- TODO:: comments go here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer></footer>
+</section>

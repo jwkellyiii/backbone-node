@@ -1,0 +1,17 @@
+define([
+    'jquery',
+    'lodash',
+    'backbone',
+    'models/issue'
+], function($, _, Backbone, issueModel){
+    var issuesCollection = Backbone.Collection.extend({
+        model: issueModel,
+        url: 'https://api.github.com/repos/rails/rails/issues',
+        //url: 'http://localhost:1337/issues',
+        initialize: function(){
+            console.log("issues:collection");
+        }
+    });
+
+    return issuesCollection;
+});
