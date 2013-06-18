@@ -1,5 +1,7 @@
 var fs = require("fs");
 var express = require("express");
+//var hljs = require('highlight.js');
+
 var site = express.createServer();
 
 site.use(express.static(__dirname + '/..'));

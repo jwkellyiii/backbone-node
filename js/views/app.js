@@ -6,7 +6,8 @@ define([
   'events',
   'collections/issues',
   'text!templates/layout.html',
-  'moment'
+  'moment',
+  'markdown'
 ], function($, _, Backbone, Vm, Events, IssuesCollection, layoutTemplate){
   var AppView = Backbone.View.extend({
     el: '.container',
@@ -23,7 +24,6 @@ define([
 
       _.mixin(underscorePartials);
       _.declarePartial('label', '<span class="label label-info"><%= label.name %></span>');
-
     },
     render: function () {
       var that = this;

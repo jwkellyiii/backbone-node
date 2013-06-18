@@ -13,6 +13,9 @@ requirejs.config({
     // Require.js plugins
     text: 'libs/require/text',
 
+    // markdown.js plugin
+    markdown: 'libs/markdown/markdown',
+
     // jquery plugins
     moment: 'libs/jquery/moment',
 

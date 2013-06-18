@@ -2,8 +2,10 @@ define([
     'jquery',
     'lodash',
     'backbone',
-    'text!templates/issue/page.html'
-], function($, _, Backbone, issuePageTemplate){
+    'text!templates/issue/page.html',
+    'text!templates/comments/page.html',
+    'collections/comments'
+], function($, _, Backbone, issuePageTemplate, commentsPageTemplate, CommentsCollection){
     var IssuePage = Backbone.View.extend({
         el: '.page',
         render: function () {
@@ -34,10 +36,32 @@ define([
                 success: function(issue) {
                     console.log("success");
                     $(that.el).html(_.template(issuePageTemplate, {issue: issue, _:_}));
+
+                    // get the issue comments, if exist
+                    if(issue.get("comments") > 0) {
+                        that.getComments(id);
+                    }
                 },
                 error: function(response) {
                     console.log("error");
                     console.log(response, "Error retrieving issue data!");
+                }
+            });
+        },
+        getComments: function(issueId) {
+            console.log("getComments");
+            console.log(issueId);
+            var comments = new CommentsCollection({issueId: issueId});
+            var that = this;
+
+            comments.fetch({
+                success: function(comments) {
+                    console.log("success");
+                    $("#comments").html(_.template(commentsPageTemplate, {comments: comments.models, _:_}));
+                },
+                error: function(response) {
+                    console.log("error");
+                    console.log(response, "Error retrieving issue comments!");
                 }
             });
         }

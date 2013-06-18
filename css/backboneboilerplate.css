@@ -2,3 +2,35 @@
 .page {
     margin-top: 40px;
 }
+
+#issue {
+    margin-bottom: 20px;
+}
+
+#issue .creator img {
+    margin: 10px 0;
+}
+
+#issue .issue-body {
+    /*border: 1px solid #d3d3d3;*/
+    padding: 5px;
+    margin-bottom: 20px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.comment {
+    border: 1px solid #d3d3d3;
+    padding: 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.comment .media-body code {
+    display: block;
+    padding: .5em;
+    background: #f0f0f0;
+    white-space: pre;
+}
