@@ -9,6 +9,9 @@ define([
         render: function () {
             var that = this;
             var issueId = this.options.issueId;
+
+            console.log(this);
+
             that.getIssue(issueId);
 
             //$(this.el).html(issuePageTemplate);

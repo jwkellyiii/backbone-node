@@ -5,7 +5,8 @@ define([
   'vm',
   'events',
   'collections/issues',
-  'text!templates/layout.html'
+  'text!templates/layout.html',
+  'moment'
 ], function($, _, Backbone, Vm, Events, IssuesCollection, layoutTemplate){
   var AppView = Backbone.View.extend({
     el: '.container',

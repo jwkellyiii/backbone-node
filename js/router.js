@@ -53,8 +53,24 @@ define([
     router.on('route:issue', function (issueId) {
       require(['views/issue/page'], function (IssuePage) {
         console.log("router::"+ issueId);
-        var issuePage = Vm.create(appView, 'IssuePage', IssuePage, {issues: issuesList, issueId: issueId});
-        issuePage.render();
+
+        if(issuesList.length == 0) {
+            // get the issues again
+            issuesList.fetch({
+                success: function(issuesList) {
+                    console.log("success");
+                    var issuePage = Vm.create(appView, 'IssuePage', IssuePage, {issues: issuesList, issueId: issueId});
+                    issuePage.render();
+                },
+                error: function(response) {
+                    console.log("error");
+                    console.log(response, "Error retrieving issues from GitHub!");
+                }
+            });
+        } else {
+            var issuePage = Vm.create(appView, 'IssuePage', IssuePage, {issues: issuesList, issueId: issueId});
+            issuePage.render();
+        }
       });
     });
     Backbone.history.start();

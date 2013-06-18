@@ -16,7 +16,7 @@
                     <div class="media-body">
                         <div class="issue-body">
                             <small>
-                                <span>Created by <span id="creator"><a href="<%= issue.get('user').url %>"><%= issue.get('user').login %></a></span> <span id="created_at"><%= issue.get('created_at') %></span>.</span>
+                                <span>Created by <span id="creator"><a href="<%= issue.get('user').url %>"><%= issue.get('user').login %></a></span> <span id="created_at"><%= moment(issue.get('created_at')).fromNow() %></span>.</span>
                                 <%= issue.get('comments') %>
                             </small>
                             <h5 class="media-heading">

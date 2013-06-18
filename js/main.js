@@ -13,18 +13,26 @@ requirejs.config({
     // Require.js plugins
     text: 'libs/require/text',
 
+    // jquery plugins
+    moment: 'libs/jquery/moment',
+
     // Just a short cut so we can put our html outside the js dir
     // When you have HTML/CSS designers this aids in keeping them out of the js directory
     templates: '../templates'
   },
   useStrict: true,
   shim: {
+    "jquery": {
+        exports: '$'
+    },
+    "moment": ["jquery"],
     "underscore": {
       exports: '_'
     },
     "backbone": {
       deps: ["underscore", "jquery"],
-      exports: 'Backbone' }
+      exports: 'Backbone'
+    }
   }
 });
 

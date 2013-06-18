@@ -8,6 +8,10 @@ define([
         model: issueModel,
         url: 'https://api.github.com/repos/rails/rails/issues',
         //url: 'http://localhost:1337/issues',
+        //url: function() {
+        //    console.log("url");
+        //    return 'https://api.github.com/repos/rails/rails';
+        //}
         initialize: function(){
             console.log("issues:collection");
         }
