@@ -47,3 +47,26 @@ require([
   appView.render();
   Router.initialize({appView: appView});  // The router now has a copy of all main appview
 });
+
+/**
+ * Allow underscore use of partials
+ */
+var underscorePartials = (function(){
+    var partialCache = {};
+
+    var mixin = {
+        declarePartial: function(name, template) {
+            partialCache[name] = _.template(template);
+        },
+        partial: function(name, data) {
+            return partialCache[name](data)
+        },
+        comment_count: function(comments) {
+            return (comments > 0) ? '<i class="icon-comment"></i> ' + comments + ((comments > 1) ? ' comments' : ' comment') : null
+        }
+    };
+
+    return mixin;
+
+})();
+

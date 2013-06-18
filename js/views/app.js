@@ -21,6 +21,9 @@ define([
       });
       var nestedView1 = Vm.create(this, 'Nested View 1', NestedView1);
 
+      _.mixin(underscorePartials);
+      _.declarePartial('label', '<span class="label label-info"><%= label.name %></span>');
+
     },
     render: function () {
       var that = this;

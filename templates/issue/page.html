@@ -17,7 +17,7 @@
                         <div class="issue-body">
                             <small>
                                 <span>Created by <span id="creator"><a href="<%= issue.get('user').url %>"><%= issue.get('user').login %></a></span> <span id="created_at"><%= moment(issue.get('created_at')).fromNow() %></span>.</span>
-                                <%= issue.get('comments') %>
+                                <%= _.comment_count(issue.get('comments')) %>
                             </small>
                             <h5 class="media-heading">
                                 <span class="muted">#<%= issue.get('number') %></span>
@@ -25,9 +25,8 @@
                             </h5>
                             <div><%= issue.get('body') %></div>
                             <span id="labels">
-                                <!-- TODO:: make its own template -->
                                 <% _.each(issue.get('labels'), function(label) { %>
-                                    <span class="label label-info"><%= label.name %></span>
+                                    <%= _.partial('label', {label: label}) %>
                                 <% }); %>
                             </span>
                         </div>
