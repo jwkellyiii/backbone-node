@@ -11,7 +11,7 @@
                         <a href="<%= issue.get('user').url %>" class="creator">
                             <img class="media-object" width="80" height="80" src="<%= issue.get('user').avatar_url %>" alt="<%= issue.get('user').login %>" title="<%= issue.get('user').login %>" />
                         </a>
-                        <%= issue.get('state') %>
+                        <%= _.issue_state(issue.get('state')) %>
                     </div>
                     <div class="media-body">
                         <div class="issue-body">

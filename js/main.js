@@ -66,6 +66,9 @@ var underscorePartials = (function(){
         },
         comment_count: function(comments) {
             return (comments > 0) ? '<i class="icon-comment"></i> ' + comments + ((comments > 1) ? ' comments' : ' comment') : null
+        },
+        issue_state: function(state) {
+            return (state == "open") ? '<a href="#" class="btn btn-success disabled">Open</a>' : '<a href="#" class="btn btn-danger disabled">Closed</a>';
         }
     };
 
