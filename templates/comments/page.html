@@ -8,7 +8,8 @@
                 <span><span id="creator"><a href="<%= comment.get('user').url %>"><%= comment.get('user').login %></a></span> commented <span id="created_at"><%= moment(comment.get('created_at')).fromNow() %></span>.</span>
             </small>
             <div>
-                <%= markdown.toHTML(comment.get('body')) %>
+                <% var converter = new Showdown.converter(); %>
+                <%= converter.makeHtml(comment.get('body')) %>
             </div>
         </div>
     </div>

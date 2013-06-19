@@ -29,8 +29,26 @@
 }
 
 .comment .media-body code {
-    display: block;
-    padding: .5em;
-    background: #f0f0f0;
-    white-space: pre;
+    white-space: nowrap;
+    margin: 0 2px;
+    padding: 0px 5px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+}
+
+.comment .media-body pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+.comment .media-body pre h1 {
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
 }

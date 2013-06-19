@@ -1,7 +1,7 @@
 // Require.js allows us to configure shortcut alias
 // Their usage will become more apparent further along in the tutorial.
 requirejs.config({
-  baseUrl: "js",
+//  baseUrl: "js",
   paths: {
     // Major libraries
     jquery: 'libs/jquery/jquery-min',
@@ -13,8 +13,8 @@ requirejs.config({
     // Require.js plugins
     text: 'libs/require/text',
 
-    // markdown.js plugin
-    markdown: 'libs/markdown/markdown',
+    // showdown.js plugin
+    showdown: 'libs/showdown/showdown',
 
     // jquery plugins
     moment: 'libs/jquery/moment',

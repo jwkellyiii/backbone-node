@@ -7,7 +7,7 @@ define([
   'collections/issues',
   'text!templates/layout.html',
   'moment',
-  'markdown'
+  'showdown'
 ], function($, _, Backbone, Vm, Events, IssuesCollection, layoutTemplate){
   var AppView = Backbone.View.extend({
     el: '.container',
